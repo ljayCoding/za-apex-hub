@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <Box>
       <NavBar />
-      <Typography variant="h3" sx={{ textAlign: 'center' }}>
+      <Typography variant="h5" sx={{ textAlign: 'center', marginTop: '5px' }}>
         Home
       </Typography>
     </Box>

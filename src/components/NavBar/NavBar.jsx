@@ -1,53 +1,60 @@
-import {
-  CssBaseline,
-  createTheme,
-  ThemeProvider,
-  Button,
-  Box,
-} from '@mui/material';
+import { Button, Box, useMediaQuery, useTheme } from '@mui/material';
+import { Link } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { useState } from 'react';
-import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
-
-const themeLight = createTheme({
-  palette: {
-    background: {
-      default: '#ffffff',
-    },
-    primary: {
-      main: '#073B4C',
-    },
-  },
-});
-
-const themeDark = createTheme({
-  palette: {
-    background: {
-      default: '#222222',
-    },
-    text: {
-      primary: '#ffffff',
-    },
-    primary: {
-      main: '#06D6A0',
-    },
-  },
-});
 
 const NavBar = () => {
-  const [light, setLight] = useState(false);
+  const theme = useTheme();
+  const desktop = useMediaQuery(theme.breakpoints.up('lg'));
+
+  const [showModal, setShowModal] = useState(false);
+
+  const clickHandler = () => {
+    setShowModal(!showModal);
+    console.log(showModal);
+  };
+
+  if (desktop) {
+    return (
+      <Box sx={{ borderBottom: '2px black solid' }}>
+        <Button component={Link} to="/">
+          Home
+        </Button>
+        <Button component={Link} to="/tournaments">
+          Tournaments
+        </Button>
+        <Button component={Link} to="/clip-submission">
+          Clip Submission
+        </Button>
+      </Box>
+    );
+  }
   return (
     <Box sx={{ borderBottom: '2px black solid' }}>
-      <ThemeProvider theme={light ? themeLight : themeDark}>
-        <CssBaseline />
-        <Button href="/">Home</Button>
-        <Button href="/tournaments">Tournaments</Button>
-        <Button
-          onClick={() => setLight((prev) => !prev)}
-          sx={{ position: 'absolute', right: '0px' }}
-        >
-          <ModeNightOutlinedIcon />
-        </Button>
-      </ThemeProvider>
+      {showModal || (
+        <MenuIcon
+          sx={{ marginTop: '5px', marginLeft: '2px' }}
+          onClick={clickHandler}
+        ></MenuIcon>
+      )}
+      {showModal && (
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <MenuOpenIcon
+            sx={{ marginTop: '5px', marginLeft: '2px' }}
+            onClick={clickHandler}
+          ></MenuOpenIcon>{' '}
+          <Button component={Link} to="/">
+            Home
+          </Button>
+          <Button component={Link} to="/tournaments">
+            Tournaments
+          </Button>
+          <Button component={Link} to="/clip-submission">
+            Clip Submission
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 };
