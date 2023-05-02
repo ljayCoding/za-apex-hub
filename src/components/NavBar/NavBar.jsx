@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 const NavBar = () => {
   const theme = useTheme();
@@ -12,7 +14,6 @@ const NavBar = () => {
 
   const clickHandler = () => {
     setShowModal(!showModal);
-    console.log(showModal);
   };
 
   if (desktop) {
@@ -27,34 +28,90 @@ const NavBar = () => {
         <Button component={Link} to="/clip-submission">
           Clip Submission
         </Button>
+        <a
+          href="https://discord.gg/qSdEMMAFGj"
+          style={{ color: '#06D6A0' }}
+        >
+          <FontAwesomeIcon
+            style={{
+              position: 'absolute',
+              right: '0px',
+              margin: '10px',
+              fontSize: '20px',
+            }}
+            icon={faDiscord}
+          ></FontAwesomeIcon>
+        </a>
       </Box>
     );
   }
   return (
     <Box sx={{ borderBottom: '2px black solid' }}>
-      {showModal || (
-        <MenuIcon
-          sx={{ marginTop: '5px', marginLeft: '2px' }}
-          onClick={clickHandler}
-        ></MenuIcon>
-      )}
-      {showModal && (
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <MenuOpenIcon
-            sx={{ marginTop: '5px', marginLeft: '2px' }}
-            onClick={clickHandler}
-          ></MenuOpenIcon>{' '}
-          <Button component={Link} to="/">
-            Home
-          </Button>
-          <Button component={Link} to="/tournaments">
-            Tournaments
-          </Button>
-          <Button component={Link} to="/clip-submission">
-            Clip Submission
-          </Button>
-        </Box>
-      )}
+      <>
+        {showModal || (
+          <>
+            <MenuIcon
+              sx={{
+                fontSize: '30px',
+                marginTop: '5px',
+                marginLeft: '2px',
+                '&:hover': { cursor: 'pointer' },
+              }}
+              onClick={clickHandler}
+            ></MenuIcon>
+            <a
+              href="https://discord.gg/qSdEMMAFGj"
+              style={{ color: '#06D6A0' }}
+            >
+              <FontAwesomeIcon
+                style={{
+                  position: 'absolute',
+                  right: '0px',
+                  margin: '10px',
+                  fontSize: '20px',
+                }}
+                icon={faDiscord}
+              ></FontAwesomeIcon>
+            </a>
+          </>
+        )}
+        {showModal && (
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <a
+              href="https://discord.gg/qSdEMMAFGj"
+              style={{ color: '#06D6A0' }}
+            >
+              <FontAwesomeIcon
+                style={{
+                  position: 'absolute',
+                  right: '0px',
+                  margin: '10px',
+                  fontSize: '20px',
+                }}
+                icon={faDiscord}
+              ></FontAwesomeIcon>
+            </a>
+            <MenuOpenIcon
+              sx={{
+                fontSize: '30px',
+                marginTop: '5px',
+                marginLeft: '2px',
+                '&:hover': { cursor: 'pointer' },
+              }}
+              onClick={clickHandler}
+            ></MenuOpenIcon>{' '}
+            <Button component={Link} to="/">
+              Home
+            </Button>
+            <Button component={Link} to="/tournaments">
+              Tournaments
+            </Button>
+            <Button component={Link} to="/clip-submission">
+              Clip Submission
+            </Button>
+          </Box>
+        )}
+      </>
     </Box>
   );
 };
