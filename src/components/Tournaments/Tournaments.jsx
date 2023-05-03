@@ -11,6 +11,12 @@ const Tournaments = () => {
       >
         Tournaments
       </Typography>
+      <Typography
+        variant="body1"
+        sx={{ color: 'white', margin: '15px', textAlign: 'center' }}
+      >
+        There is no tournament support yet!
+      </Typography>
     </Box>
   );
 };

@@ -4,33 +4,70 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const NavBar = () => {
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up('lg'));
 
-  const [showModal, setShowModal] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const clickHandler = () => {
-    setShowModal(!showModal);
+    setShowMenu(!showMenu);
   };
 
-  if (desktop) {
-    return (
-      <Box sx={{ borderBottom: '2px black solid' }}>
-        <Button component={Link} to="/">
-          Home
-        </Button>
-        <Button component={Link} to="/tournaments">
-          Tournaments
-        </Button>
-        <Button component={Link} to="/clip-submission">
-          Clip Submission
-        </Button>
-        <a
-          href="https://discord.gg/qSdEMMAFGj"
+  return desktop ? (
+    <Box sx={{ borderBottom: '2px black solid' }}>
+      <Button component={Link} to="/">
+        Home
+      </Button>
+      <Button component={Link} to="/tournaments">
+        Tournaments
+      </Button>
+      <Button component={Link} to="/clip-submission">
+        Clip Submission
+      </Button>
+      <Link
+        to="https://discord.gg/qSdEMMAFGj"
+        style={{ color: '#06D6A0' }}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <FontAwesomeIcon
+          style={{
+            position: 'absolute',
+            right: '0px',
+            margin: '10px',
+            fontSize: '20px',
+          }}
+          icon={faDiscord}
+        ></FontAwesomeIcon>
+      </Link>
+      <Link
+        to="https://twitter.com/ApexAfrUpdates"
+        style={{ color: '#06D6A0' }}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <FontAwesomeIcon
+          style={{
+            position: 'absolute',
+            right: '30px',
+            margin: '10px',
+            fontSize: '20px',
+          }}
+          icon={faTwitter}
+        ></FontAwesomeIcon>
+      </Link>
+    </Box>
+  ) : (
+    <Box sx={{ borderBottom: '2px black solid' }}>
+      <>
+        <Link
+          to="https://discord.gg/qSdEMMAFGj"
           style={{ color: '#06D6A0' }}
+          rel="noreferrer"
+          target="_blank"
         >
           <FontAwesomeIcon
             style={{
@@ -41,56 +78,36 @@ const NavBar = () => {
             }}
             icon={faDiscord}
           ></FontAwesomeIcon>
-        </a>
-      </Box>
-    );
-  }
-  return (
-    <Box sx={{ borderBottom: '2px black solid' }}>
-      <>
-        {showModal || (
-          <>
-            <MenuIcon
-              sx={{
-                fontSize: '30px',
-                marginTop: '5px',
-                marginLeft: '2px',
-                '&:hover': { cursor: 'pointer' },
-              }}
-              onClick={clickHandler}
-            ></MenuIcon>
-            <a
-              href="https://discord.gg/qSdEMMAFGj"
-              style={{ color: '#06D6A0' }}
-            >
-              <FontAwesomeIcon
-                style={{
-                  position: 'absolute',
-                  right: '0px',
-                  margin: '10px',
-                  fontSize: '20px',
-                }}
-                icon={faDiscord}
-              ></FontAwesomeIcon>
-            </a>
-          </>
+        </Link>
+        <Link
+          to="https://twitter.com/ApexAfrUpdates"
+          style={{ color: '#06D6A0' }}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <FontAwesomeIcon
+            style={{
+              position: 'absolute',
+              right: '30px',
+              margin: '10px',
+              fontSize: '20px',
+            }}
+            icon={faTwitter}
+          ></FontAwesomeIcon>
+        </Link>
+        {showMenu || (
+          <MenuIcon
+            sx={{
+              fontSize: '30px',
+              marginTop: '5px',
+              marginLeft: '2px',
+              '&:hover': { cursor: 'pointer' },
+            }}
+            onClick={clickHandler}
+          ></MenuIcon>
         )}
-        {showModal && (
+        {showMenu && (
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <a
-              href="https://discord.gg/qSdEMMAFGj"
-              style={{ color: '#06D6A0' }}
-            >
-              <FontAwesomeIcon
-                style={{
-                  position: 'absolute',
-                  right: '0px',
-                  margin: '10px',
-                  fontSize: '20px',
-                }}
-                icon={faDiscord}
-              ></FontAwesomeIcon>
-            </a>
             <MenuOpenIcon
               sx={{
                 fontSize: '30px',
@@ -115,4 +132,5 @@ const NavBar = () => {
     </Box>
   );
 };
+
 export default NavBar;
