@@ -1,7 +1,15 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
+import CreateNewTournament from '../CreateNewTournament/CreateNewTournament';
 import NavBar from '../NavBar/NavBar';
+import { useState } from 'react';
 
 const Tournaments = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
   return (
     <Box>
       <NavBar />
@@ -11,12 +19,41 @@ const Tournaments = () => {
       >
         Tournaments
       </Typography>
-      <Typography
-        variant="body1"
-        sx={{ color: 'white', margin: '15px', textAlign: 'center' }}
+      <Button
+        variant="contained"
+        sx={{
+          position: 'absolute',
+          right: '15px',
+          marginTop: '25px',
+          fontSize: '12px',
+          fontWeight: 'bold',
+          width: '110px',
+          height: '45px',
+          color: '#222222',
+          zIndex: '-1',
+        }}
+        onClick={() => {
+          setShowModal(true);
+        }}
       >
-        There is no tournament support yet!
-      </Typography>
+        Create Custom
+      </Button>
+      {showModal && (
+        <CreateNewTournament onClose={handleModalClose} open={showModal} />
+      )}
+      <Box>
+        <Typography
+          variant="p1"
+          sx={{
+            fontWeight: 'bold',
+            display: 'block',
+            textAlign: 'center',
+            position: 'relative',
+          }}
+        >
+          * THIS IS STILL NON-FUNCTIONAL *
+        </Typography>
+      </Box>
     </Box>
   );
 };

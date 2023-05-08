@@ -4,7 +4,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import {
+  faDiscord,
+  faTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 
 const NavBar = () => {
   const theme = useTheme();
@@ -59,6 +63,22 @@ const NavBar = () => {
           icon={faTwitter}
         ></FontAwesomeIcon>
       </Link>
+      <Link
+        to="https://www.youtube.com/@ApexAfricaHub"
+        style={{ color: '#06D6A0' }}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <FontAwesomeIcon
+          style={{
+            position: 'absolute',
+            right: '57px',
+            margin: '10px',
+            fontSize: '20px',
+          }}
+          icon={faYoutube}
+        ></FontAwesomeIcon>
+      </Link>
     </Box>
   ) : (
     <Box sx={{ borderBottom: '2px black solid' }}>
@@ -93,6 +113,22 @@ const NavBar = () => {
               fontSize: '20px',
             }}
             icon={faTwitter}
+          ></FontAwesomeIcon>
+        </Link>
+        <Link
+          to="https://www.youtube.com/@ApexAfricaHub"
+          style={{ color: '#06D6A0' }}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <FontAwesomeIcon
+            style={{
+              position: 'absolute',
+              right: '57px',
+              margin: '10px',
+              fontSize: '20px',
+            }}
+            icon={faYoutube}
           ></FontAwesomeIcon>
         </Link>
         {showMenu || (

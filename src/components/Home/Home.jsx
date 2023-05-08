@@ -1,30 +1,30 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import ClipOfTheWeek from '../ClipOfTheWeek/ClipOfTheWeek';
 import NavBar from '../NavBar/NavBar';
+import NewestVideo from '../NewestVideo/NewestVideo';
 
 const Home = () => {
+  const editorLink = 'https://twitter.com/Redactbtw';
+  const editorName = 'redactbtw';
+  const src = 'https://www.youtube-nocookie.com/embed/3UewaNNIEc8';
+
+  const tweetId = '1654903694591156231';
+  const ownerName = 'ThendoPlays';
+  const ownerURL = 'https://www.twitch.tv/thendoplays';
+
   return (
     <Box>
       <NavBar />
-      <Typography
-        variant="h5"
-        sx={{ textAlign: 'center', marginTop: '5px' }}
-      >
-        Home
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{ color: 'white', margin: '15px', textAlign: 'center' }}
-      >
-        Welcome to the ZA Apex website!
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{ color: 'white', margin: '15px', textAlign: 'center' }}
-      >
-        This is still a work in progress but in the future I have plans for
-        this website to be used as a hub where people can post all their
-        customs in one central area!
-      </Typography>
+      <NewestVideo
+        editorLink={editorLink}
+        editorName={editorName}
+        src={src}
+      />
+      <ClipOfTheWeek
+        tweetId={tweetId}
+        ownerName={ownerName}
+        ownerURL={ownerURL}
+      />
     </Box>
   );
 };
