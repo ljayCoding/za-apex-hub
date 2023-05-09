@@ -18,18 +18,13 @@ const baseTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
+    body1: {
+      fontFamily: ['Kanit', 'sans-serif'].join(','),
+    },
+    h5: {
+      fontFamily: ['Space Grotesk', 'sans-serif'].join(','),
+      fontWeight: 'bold',
+    },
   },
 });
 

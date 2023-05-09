@@ -14,7 +14,7 @@ const ClipSubmission = () => {
       </Typography>
       <Typography
         variant="body1"
-        sx={{ color: 'white', margin: '15px', textAlign: 'center' }}
+        sx={{ color: 'white', margin: '5px', textAlign: 'center' }}
       >
         This clip submission contributes towards the local highlights*
         videos. This is open to ZA/Africa only!
@@ -23,7 +23,7 @@ const ClipSubmission = () => {
         variant="body1"
         sx={{
           color: 'white',
-          margin: '15px',
+          margin: '10px',
           textAlign: 'center',
           position: 'absolute',
           bottom: '0',
@@ -45,6 +45,9 @@ const ClipSubmission = () => {
           textAlign: 'center',
           width: '130px',
           fontSize: '12px',
+          '&:hover': {
+            fontWeight: 'bold',
+          },
         }}
         variant="outlined"
         component={Link}
@@ -61,13 +64,15 @@ const ClipSubmission = () => {
       </Typography>
       <Typography
         variant="body1"
-        sx={{ color: 'white', margin: '15px', textAlign: 'center' }}
+        sx={{ color: 'white', margin: '5px', textAlign: 'center' }}
       >
         By making a tweet of a clip and tagging the main{' '}
         <Link
           to="https://twitter.com/ApexAfrUpdates"
           target="_blank"
-          style={{ color: '#06D6A0' }}
+          style={{
+            color: '#06D6A0',
+          }}
         >
           Twitter
         </Link>{' '}
@@ -81,6 +86,9 @@ const ClipSubmission = () => {
           textAlign: 'center',
           width: '130px',
           fontSize: '12px',
+          '&:hover': {
+            fontWeight: 'bold',
+          },
         }}
         variant="outlined"
         component={Link}

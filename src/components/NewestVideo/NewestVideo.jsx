@@ -16,7 +16,7 @@ const NewestVideo = ({ editorName, editorLink, src }) => {
             marginTop: '5px',
           }}
         >
-          Our newest video!
+          Our Newest Video!
         </Typography>
         <Typography
           sx={{
@@ -24,15 +24,22 @@ const NewestVideo = ({ editorName, editorLink, src }) => {
             color: 'white',
             marginBottom: '15px',
           }}
+          variant="body1"
         >
           Check out our newest video edited by{' '}
-          <Link
-            style={{ color: '#06D6A0' }}
+          <Typography
+            sx={{
+              '&:hover': {
+                fontWeight: 'bold',
+              },
+              color: '#06D6A0',
+            }}
+            component={Link}
             to={editorLink}
             target="_blank"
           >
             {editorName}
-          </Link>
+          </Typography>
         </Typography>
         {desktop && (
           <iframe
@@ -57,6 +64,7 @@ const NewestVideo = ({ editorName, editorLink, src }) => {
               display: 'block',
               borderRadius: '10px',
               borderColor: '#06D6A0',
+              marginBottom: '15px',
             }}
             width="300"
             height="169"

@@ -21,6 +21,7 @@ const ClipOfTheWeek = ({ tweetId, ownerName, ownerURL }) => {
             textAlign: 'center',
             marginBottom: '5px',
             marginTop: '15px',
+            fontFamily: 'Space Grotesk',
           }}
         >
           Clip Of The Week!
@@ -31,16 +32,27 @@ const ClipOfTheWeek = ({ tweetId, ownerName, ownerURL }) => {
             color: 'white',
             marginBottom: '15px',
           }}
+          variant="body1"
         >
           {' '}
           Check out this week&apos;s top clip by{' '}
-          <Link target="_blank" to={ownerURL} style={{ color: '#06D6A0' }}>
+          <Typography
+            sx={{
+              '&:hover': {
+                fontWeight: 'bold',
+              },
+              color: '#06D6A0',
+            }}
+            component={Link}
+            to={ownerURL}
+            target="_blank"
+          >
             {ownerName}
-          </Link>
+          </Typography>
         </Typography>
         {desktop && (
           <Tweet
-            tweetId="1654903694591156231"
+            tweetId={tweetId}
             options={{ align: 'center', theme: 'dark', width: '400px' }}
           />
         )}
@@ -59,6 +71,9 @@ const ClipOfTheWeek = ({ tweetId, ownerName, ownerURL }) => {
             textAlign: 'center',
             width: '130px',
             fontSize: '12px',
+            '&:hover': {
+              fontWeight: 'bold',
+            },
           }}
           variant="outlined"
           component={Link}

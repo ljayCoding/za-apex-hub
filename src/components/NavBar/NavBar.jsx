@@ -21,14 +21,40 @@ const NavBar = () => {
   };
 
   return desktop ? (
-    <Box sx={{ borderBottom: '2px black solid' }}>
-      <Button component={Link} to="/">
+    <Box
+      sx={{ borderBottom: '2px black solid', backgroundColor: '#073B4C' }}
+    >
+      <Button
+        component={Link}
+        to="/"
+        sx={{
+          '&:hover': {
+            fontWeight: 'bold',
+          },
+        }}
+      >
         Home
       </Button>
-      <Button component={Link} to="/tournaments">
+      <Button
+        component={Link}
+        to="/tournaments"
+        sx={{
+          '&:hover': {
+            fontWeight: 'bold',
+          },
+        }}
+      >
         Tournaments
       </Button>
-      <Button component={Link} to="/clip-submission">
+      <Button
+        component={Link}
+        to="/clip-submission"
+        sx={{
+          '&:hover': {
+            fontWeight: 'bold',
+          },
+        }}
+      >
         Clip Submission
       </Button>
       <Link
@@ -81,7 +107,12 @@ const NavBar = () => {
       </Link>
     </Box>
   ) : (
-    <Box sx={{ borderBottom: '2px black solid' }}>
+    <Box
+      sx={{
+        borderBottom: '2px black solid',
+        backgroundColor: '#073B4C',
+      }}
+    >
       <>
         <Link
           to="https://discord.gg/qSdEMMAFGj"
@@ -137,7 +168,9 @@ const NavBar = () => {
               fontSize: '30px',
               marginTop: '5px',
               marginLeft: '2px',
-              '&:hover': { cursor: 'pointer' },
+              '&:hover': {
+                cursor: 'pointer',
+              },
             }}
             onClick={clickHandler}
           ></MenuIcon>
@@ -153,13 +186,37 @@ const NavBar = () => {
               }}
               onClick={clickHandler}
             ></MenuOpenIcon>{' '}
-            <Button component={Link} to="/">
+            <Button
+              component={Link}
+              to="/"
+              sx={{
+                '&:hover': {
+                  fontWeight: 'bold',
+                },
+              }}
+            >
               Home
             </Button>
-            <Button component={Link} to="/tournaments">
+            <Button
+              component={Link}
+              to="/tournaments"
+              sx={{
+                '&:hover': {
+                  fontWeight: 'bold',
+                },
+              }}
+            >
               Tournaments
             </Button>
-            <Button component={Link} to="/clip-submission">
+            <Button
+              component={Link}
+              to="/clip-submission"
+              sx={{
+                '&:hover': {
+                  fontWeight: 'bold',
+                },
+              }}
+            >
               Clip Submission
             </Button>
           </Box>

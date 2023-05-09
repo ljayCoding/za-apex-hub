@@ -15,15 +15,15 @@ const Home = () => {
   return (
     <Box>
       <NavBar />
-      <NewestVideo
-        editorLink={editorLink}
-        editorName={editorName}
-        src={src}
-      />
       <ClipOfTheWeek
         tweetId={tweetId}
         ownerName={ownerName}
         ownerURL={ownerURL}
+      />
+      <NewestVideo
+        editorLink={editorLink}
+        editorName={editorName}
+        src={src}
       />
     </Box>
   );
