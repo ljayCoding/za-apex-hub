@@ -30,7 +30,7 @@ const Tournaments = () => {
           width: '110px',
           height: '45px',
           color: '#222222',
-          zIndex: '-1',
+          zIndex: '1',
         }}
         onClick={() => {
           setShowModal(true);
@@ -51,7 +51,7 @@ const Tournaments = () => {
             position: 'relative',
           }}
         >
-          * THIS IS STILL NON-FUNCTIONAL *
+          * COMING SOON! *
         </Typography>
       </Box>
     </Box>

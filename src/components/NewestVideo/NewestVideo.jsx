@@ -42,37 +42,41 @@ const NewestVideo = ({ editorName, editorLink, src }) => {
           </Typography>
         </Typography>
         {desktop && (
-          <iframe
-            style={{
-              margin: 'auto',
-              display: 'block',
-              borderRadius: '10px',
-              borderColor: '#06D6A0',
-            }}
-            width="560"
-            height="315"
-            src={src}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
+          <Box>
+            <iframe
+              style={{
+                margin: 'auto',
+                display: 'block',
+                borderRadius: '10px',
+                borderColor: '#06D6A0',
+              }}
+              width="560"
+              height="315"
+              src={src}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </Box>
         )}
         {desktop || (
-          <iframe
-            style={{
-              margin: 'auto',
-              display: 'block',
-              borderRadius: '10px',
-              borderColor: '#06D6A0',
-              marginBottom: '15px',
-            }}
-            width="300"
-            height="169"
-            src={src}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
+          <Box>
+            <iframe
+              style={{
+                margin: 'auto',
+                display: 'block',
+                borderRadius: '10px',
+                borderColor: '#06D6A0',
+                marginBottom: '15px',
+              }}
+              width="300"
+              height="169"
+              src={src}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </Box>
         )}
       </>
     </Box>

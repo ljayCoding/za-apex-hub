@@ -1,7 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Tournaments from './components/Tournaments/Tournaments';
 import Home from './components/Home/Home';
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import {
+  createTheme,
+  ThemeProvider,
+  CssBaseline,
+  Box,
+} from '@mui/material';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import ClipSubmission from './components/ClipSubmission/ClipSubmission';
 
@@ -31,18 +36,28 @@ const baseTheme = createTheme({
 function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={baseTheme}>
-        <CssBaseline />
-        <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route path="/tournaments" element={<Tournaments />}></Route>
-          <Route
-            path="/clip-submission"
-            element={<ClipSubmission />}
-          ></Route>
-          <Route path="/*" element={<PageNotFound />}></Route>
-        </Routes>
-      </ThemeProvider>
+      <Box
+        sx={{
+          backgroundImage: 'url(/allogo.png)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '700px',
+          backgroundPosition: 'center',
+          height: '100vh',
+        }}
+      >
+        <ThemeProvider theme={baseTheme}>
+          <CssBaseline />
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route path="/tournaments" element={<Tournaments />}></Route>
+            <Route
+              path="/clip-submission"
+              element={<ClipSubmission />}
+            ></Route>
+            <Route path="/*" element={<PageNotFound />}></Route>
+          </Routes>
+        </ThemeProvider>
+      </Box>
     </BrowserRouter>
   );
 }

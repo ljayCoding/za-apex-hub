@@ -8,9 +8,9 @@ const Home = () => {
   const editorName = 'redactbtw';
   const src = 'https://www.youtube-nocookie.com/embed/3UewaNNIEc8';
 
-  const tweetId = '1654903694591156231';
-  const ownerName = 'ThendoPlays';
-  const ownerURL = 'https://www.twitch.tv/thendoplays';
+  const tweetId = '1656424927270977537';
+  const ownerName = 'apacass';
+  const ownerURL = 'https://www.twitch.tv/apacass';
 
   return (
     <Box>
