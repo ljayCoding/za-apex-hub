@@ -1,18 +1,19 @@
-import { Button, Box, useMediaQuery, useTheme } from '@mui/material';
-import { Link } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Box, useMediaQuery, useTheme } from "@mui/material";
+import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDiscord,
   faTwitter,
   faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
+} from "@fortawesome/free-brands-svg-icons";
+import Login from "../Login/Login";
 
 const NavBar = () => {
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const desktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -21,15 +22,13 @@ const NavBar = () => {
   };
 
   return desktop ? (
-    <Box
-      sx={{ borderBottom: '2px black solid', backgroundColor: '#073B4C' }}
-    >
+    <Box sx={{ borderBottom: "2px black solid", backgroundColor: "#073B4C" }}>
       <Button
         component={Link}
         to="/"
         sx={{
-          '&:hover': {
-            fontWeight: 'bold',
+          "&:hover": {
+            fontWeight: "bold",
           },
         }}
       >
@@ -39,8 +38,8 @@ const NavBar = () => {
         component={Link}
         to="/tournaments"
         sx={{
-          '&:hover': {
-            fontWeight: 'bold',
+          "&:hover": {
+            fontWeight: "bold",
           },
         }}
       >
@@ -50,57 +49,58 @@ const NavBar = () => {
         component={Link}
         to="/clip-submission"
         sx={{
-          '&:hover': {
-            fontWeight: 'bold',
+          "&:hover": {
+            fontWeight: "bold",
           },
         }}
       >
         Clip Submission
       </Button>
+      <Login />
       <Link
         to="https://discord.gg/qSdEMMAFGj"
-        style={{ color: '#06D6A0' }}
+        style={{ color: "#06D6A0" }}
         rel="noreferrer"
         target="_blank"
       >
         <FontAwesomeIcon
           style={{
-            position: 'absolute',
-            right: '0px',
-            margin: '10px',
-            fontSize: '20px',
+            position: "absolute",
+            right: "0px",
+            margin: "10px",
+            fontSize: "20px",
           }}
           icon={faDiscord}
         ></FontAwesomeIcon>
       </Link>
       <Link
         to="https://twitter.com/ApexAfrUpdates"
-        style={{ color: '#06D6A0' }}
+        style={{ color: "#06D6A0" }}
         rel="noreferrer"
         target="_blank"
       >
         <FontAwesomeIcon
           style={{
-            position: 'absolute',
-            right: '30px',
-            margin: '10px',
-            fontSize: '20px',
+            position: "absolute",
+            right: "30px",
+            margin: "10px",
+            fontSize: "20px",
           }}
           icon={faTwitter}
         ></FontAwesomeIcon>
       </Link>
       <Link
         to="https://www.youtube.com/@ApexAfricaHub"
-        style={{ color: '#06D6A0' }}
+        style={{ color: "#06D6A0" }}
         rel="noreferrer"
         target="_blank"
       >
         <FontAwesomeIcon
           style={{
-            position: 'absolute',
-            right: '57px',
-            margin: '10px',
-            fontSize: '20px',
+            position: "absolute",
+            right: "57px",
+            margin: "10px",
+            fontSize: "20px",
           }}
           icon={faYoutube}
         ></FontAwesomeIcon>
@@ -109,55 +109,55 @@ const NavBar = () => {
   ) : (
     <Box
       sx={{
-        borderBottom: '2px black solid',
-        backgroundColor: '#073B4C',
+        borderBottom: "2px black solid",
+        backgroundColor: "#073B4C",
       }}
     >
       <>
         <Link
           to="https://discord.gg/qSdEMMAFGj"
-          style={{ color: '#06D6A0' }}
+          style={{ color: "#06D6A0" }}
           rel="noreferrer"
           target="_blank"
         >
           <FontAwesomeIcon
             style={{
-              position: 'absolute',
-              right: '0px',
-              margin: '10px',
-              fontSize: '20px',
+              position: "absolute",
+              right: "0px",
+              margin: "10px",
+              fontSize: "20px",
             }}
             icon={faDiscord}
           ></FontAwesomeIcon>
         </Link>
         <Link
           to="https://twitter.com/ApexAfrUpdates"
-          style={{ color: '#06D6A0' }}
+          style={{ color: "#06D6A0" }}
           rel="noreferrer"
           target="_blank"
         >
           <FontAwesomeIcon
             style={{
-              position: 'absolute',
-              right: '30px',
-              margin: '10px',
-              fontSize: '20px',
+              position: "absolute",
+              right: "30px",
+              margin: "10px",
+              fontSize: "20px",
             }}
             icon={faTwitter}
           ></FontAwesomeIcon>
         </Link>
         <Link
           to="https://www.youtube.com/@ApexAfricaHub"
-          style={{ color: '#06D6A0' }}
+          style={{ color: "#06D6A0" }}
           rel="noreferrer"
           target="_blank"
         >
           <FontAwesomeIcon
             style={{
-              position: 'absolute',
-              right: '57px',
-              margin: '10px',
-              fontSize: '20px',
+              position: "absolute",
+              right: "57px",
+              margin: "10px",
+              fontSize: "20px",
             }}
             icon={faYoutube}
           ></FontAwesomeIcon>
@@ -165,33 +165,33 @@ const NavBar = () => {
         {showMenu || (
           <MenuIcon
             sx={{
-              fontSize: '30px',
-              marginTop: '5px',
-              marginLeft: '2px',
-              '&:hover': {
-                cursor: 'pointer',
+              fontSize: "30px",
+              marginTop: "5px",
+              marginLeft: "2px",
+              "&:hover": {
+                cursor: "pointer",
               },
             }}
             onClick={clickHandler}
           ></MenuIcon>
         )}
         {showMenu && (
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
             <MenuOpenIcon
               sx={{
-                fontSize: '30px',
-                marginTop: '5px',
-                marginLeft: '2px',
-                '&:hover': { cursor: 'pointer' },
+                fontSize: "30px",
+                marginTop: "5px",
+                marginLeft: "2px",
+                "&:hover": { cursor: "pointer" },
               }}
               onClick={clickHandler}
-            ></MenuOpenIcon>{' '}
+            ></MenuOpenIcon>{" "}
             <Button
               component={Link}
               to="/"
               sx={{
-                '&:hover': {
-                  fontWeight: 'bold',
+                "&:hover": {
+                  fontWeight: "bold",
                 },
               }}
             >
@@ -201,8 +201,8 @@ const NavBar = () => {
               component={Link}
               to="/tournaments"
               sx={{
-                '&:hover': {
-                  fontWeight: 'bold',
+                "&:hover": {
+                  fontWeight: "bold",
                 },
               }}
             >
@@ -212,8 +212,8 @@ const NavBar = () => {
               component={Link}
               to="/clip-submission"
               sx={{
-                '&:hover': {
-                  fontWeight: 'bold',
+                "&:hover": {
+                  fontWeight: "bold",
                 },
               }}
             >
