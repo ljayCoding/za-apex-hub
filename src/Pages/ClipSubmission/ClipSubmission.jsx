@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from '@mui/material';
-import NavBar from '../NavBar/NavBar';
+import NavBar from '../../components/NavBar/NavBar';
 import { Link } from 'react-router-dom';
 
 const ClipSubmission = () => {

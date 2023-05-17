@@ -50,27 +50,31 @@ const ClipOfTheWeek = ({ tweetId, ownerName, ownerURL }) => {
             {ownerName}
           </Typography>
         </Typography>
-        {desktop && (
+        {desktop ? (
           <Box sx={{ height: '468px' }}>
             <Tweet
               tweetId={tweetId}
               options={{ align: 'center', theme: 'dark', width: '400px' }}
             />
           </Box>
-        )}
-        {desktop || (
+        ) : (
           <Box sx={{ height: '363px' }}>
             <Tweet
               tweetId={tweetId}
-              options={{ align: 'center', theme: 'dark', width: '250px' }}
+              options={{
+                align: 'center',
+                theme: 'dark',
+                width: '250px',
+              }}
             />
           </Box>
         )}
         <Button
           sx={{
             margin: 'auto',
+            position: 'relative',
             marginBottom: '20px',
-            marginTop: '20px',
+            marginTop: '85px',
             display: 'flex',
             textAlign: 'center',
             width: '130px',

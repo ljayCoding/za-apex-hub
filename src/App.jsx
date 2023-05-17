@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Tournaments from './components/Tournaments/Tournaments';
-import Home from './components/Home/Home';
+import Tournaments from './Pages/Tournaments/Tournaments';
+import Home from './Pages/Home/Home';
 import {
   createTheme,
   ThemeProvider,
   CssBaseline,
   Box,
 } from '@mui/material';
-import PageNotFound from './components/PageNotFound/PageNotFound';
-import ClipSubmission from './components/ClipSubmission/ClipSubmission';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
+import ClipSubmission from './Pages/ClipSubmission/ClipSubmission';
+import SignIn from './Pages/SignIn/SignIn';
 
 const baseTheme = createTheme({
   palette: {
@@ -54,6 +55,7 @@ function App() {
               path="/clip-submission"
               element={<ClipSubmission />}
             ></Route>
+            <Route path="/sign-in" element={<SignIn />}></Route>
             <Route path="/*" element={<PageNotFound />}></Route>
           </Routes>
         </ThemeProvider>
