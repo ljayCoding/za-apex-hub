@@ -30,29 +30,26 @@ const NavBar = () => {
         backgroundColor: '#073B4C',
         position: 'sticky',
         top: '0px',
+        display: 'flex',
+        justifyContent: 'space-between',
       }}
     >
-      <MenuLinkIcon
-        to="https://discord.gg/qSdEMMAFGj"
-        right="0px"
-        icon={faDiscord}
-      />
-      <MenuLinkIcon
-        to="https://twitter.com/ApexAfrUpdates"
-        right="30px"
-        icon={faTwitter}
-      />
-      <MenuLinkIcon
-        to="https://www.youtube.com/@ApexAfricaHub"
-        right="57px"
-        icon={faYoutube}
-      />
       {desktop ? (
         <Box>
           <LinkButton to="/" name="home" />
           <LinkButton to="/tournaments" name="tournaments" />
           <LinkButton to="/clip-submission" name="clip submission" />
-          {!user ? <LinkButton to="/sign-in" name="sign in" /> : <Avatar />}
+          {!user ? (
+            <LinkButton to="/sign-in" name="sign in" />
+          ) : (
+            <Avatar
+              sx={{
+                bgcolor: '#06D6A0',
+                width: '20px',
+                height: '20px',
+              }}
+            />
+          )}
         </Box>
       ) : (
         <>
@@ -70,7 +67,7 @@ const NavBar = () => {
             />
           )}
           {showMenu && (
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Box>
               <MenuOpenIcon
                 sx={{
                   fontSize: '30px',
@@ -80,14 +77,32 @@ const NavBar = () => {
                 }}
                 onClick={clickHandler}
               ></MenuOpenIcon>{' '}
-              <LinkButton to="/" name="home" />
-              <LinkButton to="/tournaments" name="tournaments" />
-              <LinkButton to="/clip-submission" name="clip submission" />
-              <LinkButton to="/sign-in" name="sign in" />
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                <LinkButton to="/" name="home" />
+                <LinkButton to="/tournaments" name="tournaments" />
+                <LinkButton to="/clip-submission" name="clip submission" />
+                <LinkButton to="/sign-in" name="sign in" />
+              </Box>
             </Box>
           )}
         </>
-      )}{' '}
+      )}
+      <Box>
+        <MenuLinkIcon to="https://discord.gg/qSdEMMAFGj" icon={faDiscord} />
+        <MenuLinkIcon
+          to="https://twitter.com/ApexAfrUpdates"
+          icon={faTwitter}
+        />
+        <MenuLinkIcon
+          to="https://www.youtube.com/@ApexAfricaHub"
+          icon={faYoutube}
+        />
+      </Box>
     </Box>
   )
 }
