@@ -1,7 +1,8 @@
-import { Box, Typography, Button } from '@mui/material';
-import CreateNewTournament from '../CreateNewTournament/CreateNewTournament';
-import NavBar from '../NavBar/NavBar';
-import { useState } from 'react';
+import { Box, Typography, Button } from "@mui/material";
+import CreateNewTournament from "../CreateNewTournament/CreateNewTournament";
+import NavBar from "../NavBar/NavBar";
+import { useState } from "react";
+import Login from "../Login/Login";
 
 const Tournaments = () => {
   const [showModal, setShowModal] = useState(false);
@@ -13,24 +14,21 @@ const Tournaments = () => {
   return (
     <Box>
       <NavBar />
-      <Typography
-        variant="h5"
-        sx={{ textAlign: 'center', marginTop: '5px' }}
-      >
+      <Typography variant="h5" sx={{ textAlign: "center", marginTop: "5px" }}>
         Tournaments
       </Typography>
       <Button
         variant="contained"
         sx={{
-          position: 'absolute',
-          right: '15px',
-          marginTop: '25px',
-          fontSize: '12px',
-          fontWeight: 'bold',
-          width: '110px',
-          height: '45px',
-          color: '#222222',
-          zIndex: '1',
+          position: "absolute",
+          right: "15px",
+          marginTop: "25px",
+          fontSize: "12px",
+          fontWeight: "bold",
+          width: "110px",
+          height: "45px",
+          color: "#222222",
+          zIndex: "1",
         }}
         onClick={() => {
           setShowModal(true);
@@ -45,10 +43,10 @@ const Tournaments = () => {
         <Typography
           variant="p1"
           sx={{
-            fontWeight: 'bold',
-            display: 'block',
-            textAlign: 'center',
-            position: 'relative',
+            fontWeight: "bold",
+            display: "block",
+            textAlign: "center",
+            position: "relative",
           }}
         >
           * COMING SOON! *
