@@ -1,15 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Tournaments from './Pages/Tournaments/Tournaments';
-import Home from './Pages/Home/Home';
-import {
-  createTheme,
-  ThemeProvider,
-  CssBaseline,
-  Box,
-} from '@mui/material';
-import PageNotFound from './Pages/PageNotFound/PageNotFound';
-import ClipSubmission from './Pages/ClipSubmission/ClipSubmission';
-import SignIn from './Pages/SignIn/SignIn';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Tournaments from './Pages/Tournaments/Tournaments'
+import Home from './Pages/Home/Home'
+import { createTheme, ThemeProvider, CssBaseline, Box } from '@mui/material'
+import PageNotFound from './Pages/PageNotFound/PageNotFound'
+import ClipSubmission from './Pages/ClipSubmission/ClipSubmission'
+import SignIn from './Pages/SignIn/SignIn'
 
 const baseTheme = createTheme({
   palette: {
@@ -32,7 +27,7 @@ const baseTheme = createTheme({
       fontWeight: 'bold',
     },
   },
-});
+})
 
 function App() {
   return (
@@ -49,19 +44,16 @@ function App() {
         <ThemeProvider theme={baseTheme}>
           <CssBaseline />
           <Routes>
-            <Route exact path="/" element={<Home />}></Route>
-            <Route path="/tournaments" element={<Tournaments />}></Route>
-            <Route
-              path="/clip-submission"
-              element={<ClipSubmission />}
-            ></Route>
-            <Route path="/sign-in" element={<SignIn />}></Route>
-            <Route path="/*" element={<PageNotFound />}></Route>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/tournaments" element={<Tournaments />} />
+            <Route path="/clip-submission" element={<ClipSubmission />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/*" element={<PageNotFound />} />
           </Routes>
         </ThemeProvider>
       </Box>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

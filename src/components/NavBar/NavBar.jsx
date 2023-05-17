@@ -32,10 +32,11 @@ const NavBar = () => {
         top: '0px',
         display: 'flex',
         justifyContent: 'space-between',
+        zIndex: 1,
       }}
     >
       {desktop ? (
-        <Box>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <LinkButton to="/" name="home" />
           <LinkButton to="/tournaments" name="tournaments" />
           <LinkButton to="/clip-submission" name="clip submission" />
@@ -44,9 +45,11 @@ const NavBar = () => {
           ) : (
             <Avatar
               sx={{
-                bgcolor: '#06D6A0',
+                display: 'inline-flex',
                 width: '20px',
                 height: '20px',
+                marginLeft: '5px',
+                bgcolor: '#06D6A0',
               }}
             />
           )}
@@ -67,7 +70,14 @@ const NavBar = () => {
             />
           )}
           {showMenu && (
-            <Box>
+            <Box
+              sx={{
+                position: 'absolute',
+                zIndex: 1,
+                width: '100%',
+                backgroundColor: '#073B4C',
+              }}
+            >
               <MenuOpenIcon
                 sx={{
                   fontSize: '30px',

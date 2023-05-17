@@ -1,62 +1,61 @@
-import { Box, Typography, Button } from '@mui/material';
-import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament';
-import NavBar from '../../components/NavBar/NavBar';
-import { useState } from 'react';
+import { Box, Typography, Button } from '@mui/material'
+import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament'
+import NavBar from '../../components/NavBar/NavBar'
+import { useState } from 'react'
 
 const Tournaments = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false)
 
   const handleModalClose = () => {
-    setShowModal(false);
-  };
+    setShowModal(false)
+  }
 
   return (
-    <Box>
+    <>
       <NavBar />
-      <Typography
-        variant="h5"
-        sx={{ textAlign: 'center', marginTop: '5px' }}
-      >
-        Tournaments
-      </Typography>
-      <Button
-        variant="contained"
+      <Box
         sx={{
-          position: 'absolute',
-          right: '15px',
-          marginTop: '25px',
-          fontSize: '12px',
-          width: '110px',
-          height: '45px',
-          color: '#222222',
-          zIndex: '1',
-          '&:hover': {
-            fontWeight: 'bold',
-          },
-        }}
-        onClick={() => {
-          setShowModal(true);
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
-        Create Custom
-      </Button>
-      {showModal && (
-        <CreateNewTournament onClose={handleModalClose} open={showModal} />
-      )}
-      <Box>
-        <Typography
-          variant="p1"
+        {showModal && (
+          <CreateNewTournament onClose={handleModalClose} open={showModal} />
+        )}
+        <Typography variant="h5" sx={{ marginTop: '5px' }}>
+          Tournaments
+        </Typography>
+        <Button
+          variant="contained"
           sx={{
-            fontWeight: 'bold',
-            display: 'block',
-            textAlign: 'center',
-            position: 'relative',
+            margin: '25px 0 10px 0',
+            fontSize: '12px',
+            width: '110px',
+            height: '45px',
+            color: '#222222',
+            '&:hover': {
+              fontWeight: 'bold',
+            },
+          }}
+          onClick={() => {
+            setShowModal(true)
           }}
         >
-          * COMING SOON! *
-        </Typography>
+          Create Custom
+        </Button>
+        <Box>
+          <Typography
+            variant="p1"
+            sx={{
+              fontWeight: 'bold',
+            }}
+          >
+            * COMING SOON! *
+          </Typography>
+        </Box>
       </Box>
-    </Box>
-  );
-};
-export default Tournaments;
+    </>
+  )
+}
+export default Tournaments
