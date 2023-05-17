@@ -1,24 +1,27 @@
-import { Box, useMediaQuery, useTheme } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import { useState } from 'react';
+import { Avatar, Box, useMediaQuery, useTheme } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import MenuOpenIcon from '@mui/icons-material/MenuOpen'
+import { useState } from 'react'
 import {
   faDiscord,
   faTwitter,
   faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
-import LinkButton from '../LinkButton/LinkButton';
-import MenuLinkIcon from '../MenuLinkIcon/MenuLinkIcon';
+} from '@fortawesome/free-brands-svg-icons'
+import LinkButton from '../LinkButton/LinkButton'
+import MenuLinkIcon from '../MenuLinkIcon/MenuLinkIcon'
+import useLocalStorage from 'use-local-storage'
 
 const NavBar = () => {
-  const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const theme = useTheme()
+  const desktop = useMediaQuery(theme.breakpoints.up('lg'))
 
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false)
+
+  const [user] = useLocalStorage('user')
 
   const clickHandler = () => {
-    setShowMenu(!showMenu);
-  };
+    setShowMenu((current) => !current)
+  }
 
   return (
     <Box
@@ -33,26 +36,23 @@ const NavBar = () => {
         to="https://discord.gg/qSdEMMAFGj"
         right="0px"
         icon={faDiscord}
-      ></MenuLinkIcon>
+      />
       <MenuLinkIcon
         to="https://twitter.com/ApexAfrUpdates"
         right="30px"
         icon={faTwitter}
-      ></MenuLinkIcon>
+      />
       <MenuLinkIcon
         to="https://www.youtube.com/@ApexAfricaHub"
         right="57px"
         icon={faYoutube}
-      ></MenuLinkIcon>
+      />
       {desktop ? (
         <Box>
-          <LinkButton to="/" name="home"></LinkButton>
-          <LinkButton to="/tournaments" name="tournaments"></LinkButton>
-          <LinkButton
-            to="/clip-submission"
-            name="clip submission"
-          ></LinkButton>
-          <LinkButton to="/sign-in" name="sign in"></LinkButton>
+          <LinkButton to="/" name="home" />
+          <LinkButton to="/tournaments" name="tournaments" />
+          <LinkButton to="/clip-submission" name="clip submission" />
+          {!user ? <LinkButton to="/sign-in" name="sign in" /> : <Avatar />}
         </Box>
       ) : (
         <>
@@ -67,7 +67,7 @@ const NavBar = () => {
                 },
               }}
               onClick={clickHandler}
-            ></MenuIcon>
+            />
           )}
           {showMenu && (
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -80,22 +80,16 @@ const NavBar = () => {
                 }}
                 onClick={clickHandler}
               ></MenuOpenIcon>{' '}
-              <LinkButton to="/" name="home"></LinkButton>
-              <LinkButton
-                to="/tournaments"
-                name="tournaments"
-              ></LinkButton>
-              <LinkButton
-                to="/clip-submission"
-                name="clip submission"
-              ></LinkButton>
-              <LinkButton to="/sign-in" name="sign in"></LinkButton>
+              <LinkButton to="/" name="home" />
+              <LinkButton to="/tournaments" name="tournaments" />
+              <LinkButton to="/clip-submission" name="clip submission" />
+              <LinkButton to="/sign-in" name="sign in" />
             </Box>
           )}
         </>
       )}{' '}
     </Box>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
