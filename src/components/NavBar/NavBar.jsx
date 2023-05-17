@@ -1,14 +1,14 @@
-import { Button, Box, useMediaQuery, useTheme } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faDiscord,
   faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
+import LinkButton from '../LinkButton/LinkButton';
+import MenuLinkIcon from '../MenuLinkIcon/MenuLinkIcon';
 
 const NavBar = () => {
   const theme = useTheme();
@@ -20,230 +20,80 @@ const NavBar = () => {
     setShowMenu(!showMenu);
   };
 
-  return desktop ? (
-    <Box
-      sx={{ borderBottom: '2px black solid', backgroundColor: '#073B4C' }}
-    >
-      <Button
-        component={Link}
-        to="/"
-        sx={{
-          '&:hover': {
-            fontWeight: 'bold',
-          },
-        }}
-      >
-        Home
-      </Button>
-      <Button
-        component={Link}
-        to="/tournaments"
-        sx={{
-          '&:hover': {
-            fontWeight: 'bold',
-          },
-        }}
-      >
-        Tournaments
-      </Button>
-      <Button
-        component={Link}
-        to="/clip-submission"
-        sx={{
-          '&:hover': {
-            fontWeight: 'bold',
-          },
-        }}
-      >
-        Clip Submission
-      </Button>
-      <Button
-        component={Link}
-        to="/sign-in"
-        sx={{
-          '&:hover': {
-            fontWeight: 'bold',
-          },
-        }}
-      >
-        Sign In
-      </Button>
-      <Link
-        to="https://discord.gg/qSdEMMAFGj"
-        style={{ color: '#06D6A0' }}
-        rel="noreferrer"
-        target="_blank"
-      >
-        <FontAwesomeIcon
-          style={{
-            position: 'absolute',
-            right: '0px',
-            margin: '10px',
-            fontSize: '20px',
-          }}
-          icon={faDiscord}
-        ></FontAwesomeIcon>
-      </Link>
-      <Link
-        to="https://twitter.com/ApexAfrUpdates"
-        style={{ color: '#06D6A0' }}
-        rel="noreferrer"
-        target="_blank"
-      >
-        <FontAwesomeIcon
-          style={{
-            position: 'absolute',
-            right: '30px',
-            margin: '10px',
-            fontSize: '20px',
-          }}
-          icon={faTwitter}
-        ></FontAwesomeIcon>
-      </Link>
-      <Link
-        to="https://www.youtube.com/@ApexAfricaHub"
-        style={{ color: '#06D6A0' }}
-        rel="noreferrer"
-        target="_blank"
-      >
-        <FontAwesomeIcon
-          style={{
-            position: 'absolute',
-            right: '57px',
-            margin: '10px',
-            fontSize: '20px',
-          }}
-          icon={faYoutube}
-        ></FontAwesomeIcon>
-      </Link>
-    </Box>
-  ) : (
+  return (
     <Box
       sx={{
         borderBottom: '2px black solid',
         backgroundColor: '#073B4C',
+        position: 'sticky',
+        top: '0px',
       }}
     >
-      <>
-        <Link
-          to="https://discord.gg/qSdEMMAFGj"
-          style={{ color: '#06D6A0' }}
-          rel="noreferrer"
-          target="_blank"
-        >
-          <FontAwesomeIcon
-            style={{
-              position: 'absolute',
-              right: '0px',
-              margin: '10px',
-              fontSize: '20px',
-            }}
-            icon={faDiscord}
-          ></FontAwesomeIcon>
-        </Link>
-        <Link
-          to="https://twitter.com/ApexAfrUpdates"
-          style={{ color: '#06D6A0' }}
-          rel="noreferrer"
-          target="_blank"
-        >
-          <FontAwesomeIcon
-            style={{
-              position: 'absolute',
-              right: '30px',
-              margin: '10px',
-              fontSize: '20px',
-            }}
-            icon={faTwitter}
-          ></FontAwesomeIcon>
-        </Link>
-        <Link
-          to="https://www.youtube.com/@ApexAfricaHub"
-          style={{ color: '#06D6A0' }}
-          rel="noreferrer"
-          target="_blank"
-        >
-          <FontAwesomeIcon
-            style={{
-              position: 'absolute',
-              right: '57px',
-              margin: '10px',
-              fontSize: '20px',
-            }}
-            icon={faYoutube}
-          ></FontAwesomeIcon>
-        </Link>
-        {showMenu || (
-          <MenuIcon
-            sx={{
-              fontSize: '30px',
-              marginTop: '5px',
-              marginLeft: '2px',
-              '&:hover': {
-                cursor: 'pointer',
-              },
-            }}
-            onClick={clickHandler}
-          ></MenuIcon>
-        )}
-        {showMenu && (
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <MenuOpenIcon
+      <MenuLinkIcon
+        to="https://discord.gg/qSdEMMAFGj"
+        right="0px"
+        icon={faDiscord}
+      ></MenuLinkIcon>
+      <MenuLinkIcon
+        to="https://twitter.com/ApexAfrUpdates"
+        right="30px"
+        icon={faTwitter}
+      ></MenuLinkIcon>
+      <MenuLinkIcon
+        to="https://www.youtube.com/@ApexAfricaHub"
+        right="57px"
+        icon={faYoutube}
+      ></MenuLinkIcon>
+      {desktop ? (
+        <Box>
+          <LinkButton to="/" name="home"></LinkButton>
+          <LinkButton to="/tournaments" name="tournaments"></LinkButton>
+          <LinkButton
+            to="/clip-submission"
+            name="clip submission"
+          ></LinkButton>
+          <LinkButton to="/sign-in" name="sign in"></LinkButton>
+        </Box>
+      ) : (
+        <>
+          {showMenu || (
+            <MenuIcon
               sx={{
                 fontSize: '30px',
                 marginTop: '5px',
                 marginLeft: '2px',
-                '&:hover': { cursor: 'pointer' },
+                '&:hover': {
+                  cursor: 'pointer',
+                },
               }}
               onClick={clickHandler}
-            ></MenuOpenIcon>{' '}
-            <Button
-              component={Link}
-              to="/"
-              sx={{
-                '&:hover': {
-                  fontWeight: 'bold',
-                },
-              }}
-            >
-              Home
-            </Button>
-            <Button
-              component={Link}
-              to="/tournaments"
-              sx={{
-                '&:hover': {
-                  fontWeight: 'bold',
-                },
-              }}
-            >
-              Tournaments
-            </Button>
-            <Button
-              component={Link}
-              to="/clip-submission"
-              sx={{
-                '&:hover': {
-                  fontWeight: 'bold',
-                },
-              }}
-            >
-              Clip Submission
-            </Button>
-            <Button
-              component={Link}
-              to="/sign-in"
-              sx={{
-                '&:hover': {
-                  fontWeight: 'bold',
-                },
-              }}
-            >
-              Sign In
-            </Button>
-          </Box>
-        )}
-      </>
+            ></MenuIcon>
+          )}
+          {showMenu && (
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              <MenuOpenIcon
+                sx={{
+                  fontSize: '30px',
+                  marginTop: '5px',
+                  marginLeft: '2px',
+                  '&:hover': { cursor: 'pointer' },
+                }}
+                onClick={clickHandler}
+              ></MenuOpenIcon>{' '}
+              <LinkButton to="/" name="home"></LinkButton>
+              <LinkButton
+                to="/tournaments"
+                name="tournaments"
+              ></LinkButton>
+              <LinkButton
+                to="/clip-submission"
+                name="clip submission"
+              ></LinkButton>
+              <LinkButton to="/sign-in" name="sign in"></LinkButton>
+            </Box>
+          )}
+        </>
+      )}{' '}
     </Box>
   );
 };
