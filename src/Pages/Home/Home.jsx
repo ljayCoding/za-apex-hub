@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
 import ClipOfTheWeek from '../../components/ClipOfTheWeek/ClipOfTheWeek';
-import NavBar from '../../components/NavBar/NavBar';
 import NewestVideo from '../../components/NewestVideo/NewestVideo';
 
 const Home = () => {
@@ -14,7 +13,6 @@ const Home = () => {
 
   return (
     <Box>
-      <NavBar />
       <ClipOfTheWeek
         tweetId={tweetId}
         ownerName={ownerName}

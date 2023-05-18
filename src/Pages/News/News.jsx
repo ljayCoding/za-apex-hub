@@ -1,15 +1,15 @@
 import { Box, Typography } from '@mui/material';
 
-const PageNotFound = () => {
+const News = () => {
   return (
     <Box>
       <Typography
         variant="h5"
         sx={{ textAlign: 'center', marginTop: '5px' }}
       >
-        Page Not Found!
+        News
       </Typography>
     </Box>
   );
 };
-export default PageNotFound;
+export default News;

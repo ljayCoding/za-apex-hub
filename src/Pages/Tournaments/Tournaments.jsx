@@ -1,6 +1,5 @@
 import { Box, Typography, Button } from '@mui/material';
 import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament';
-import NavBar from '../../components/NavBar/NavBar';
 import { useState } from 'react';
 
 const Tournaments = () => {
@@ -12,7 +11,6 @@ const Tournaments = () => {
 
   return (
     <Box>
-      <NavBar />
       <Typography
         variant="h5"
         sx={{ textAlign: 'center', marginTop: '5px' }}

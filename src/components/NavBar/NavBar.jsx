@@ -52,6 +52,7 @@ const NavBar = () => {
             to="/clip-submission"
             name="clip submission"
           ></LinkButton>
+          <LinkButton to="/news" name="news"></LinkButton>
           <LinkButton to="/sign-in" name="sign in"></LinkButton>
         </Box>
       ) : (
@@ -89,6 +90,7 @@ const NavBar = () => {
                 to="/clip-submission"
                 name="clip submission"
               ></LinkButton>
+              <LinkButton to="/news" name="news"></LinkButton>
               <LinkButton to="/sign-in" name="sign in"></LinkButton>
             </Box>
           )}

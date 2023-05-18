@@ -1,11 +1,9 @@
 import { Box, Typography, Button } from '@mui/material';
-import NavBar from '../../components/NavBar/NavBar';
 import { Link } from 'react-router-dom';
 
 const ClipSubmission = () => {
   return (
     <Box>
-      <NavBar />
       <Typography
         variant="h5"
         sx={{ textAlign: 'center', marginTop: '5px' }}
