@@ -11,7 +11,7 @@ import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import ClipSubmission from './Pages/ClipSubmission/ClipSubmission';
 import SignIn from './Pages/SignIn/SignIn';
 import News from './Pages/News/News';
-import NavBar from './components/NavBar/NavBar';
+import Article from './components/Article/Article';
 
 const baseTheme = createTheme({
   palette: {
@@ -50,7 +50,6 @@ function App() {
       >
         <ThemeProvider theme={baseTheme}>
           <CssBaseline />
-          <NavBar />
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route path="/tournaments" element={<Tournaments />}></Route>
@@ -60,6 +59,7 @@ function App() {
             ></Route>
             <Route path="/sign-in" element={<SignIn />}></Route>
             <Route path="/news" element={<News />}></Route>
+            <Route path="/news/:id" element={<Article />}></Route>
             <Route path="/*" element={<PageNotFound />}></Route>
           </Routes>
         </ThemeProvider>
