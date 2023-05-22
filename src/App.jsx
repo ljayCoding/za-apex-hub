@@ -34,7 +34,7 @@ const baseTheme = createTheme({
       fontWeight: 'bold',
     },
   },
-});
+})
 
 function App() {
   return (
@@ -62,7 +62,7 @@ function App() {
         </ThemeProvider>
       </Box>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
