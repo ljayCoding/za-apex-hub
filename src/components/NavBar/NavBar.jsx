@@ -40,7 +40,7 @@ const NavBar = () => {
           <LinkButton to="/" name="home" />
           <LinkButton to="/tournaments" name="tournaments" />
           <LinkButton to="/clip-submission" name="clip submission" />
-          <LinkButton to="/news" name="news"></LinkButton>
+          <LinkButton to="/news" name="news" />
           {!user ? (
             <LinkButton to="/sign-in" name="sign in" />
           ) : (
@@ -92,12 +92,13 @@ const NavBar = () => {
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
+                  borderBottom: '2px black solid',
                 }}
               >
                 <LinkButton to="/" name="home" />
                 <LinkButton to="/tournaments" name="tournaments" />
                 <LinkButton to="/clip-submission" name="clip submission" />
-                <LinkButton to="/news" name="news"></LinkButton>
+                <LinkButton to="/news" name="news" />
                 <LinkButton to="/sign-in" name="sign in" />
               </Box>
             </Box>
