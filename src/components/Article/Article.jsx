@@ -25,9 +25,9 @@ const Article = () => {
       >
         {article.title}
       </Typography>
-      {article.contents?.map((paragraph, index) => (
+      {article.contents?.map((paragraph) => (
         <Typography
-          key={index}
+          key={article.title}
           variant="body1"
           sx={{
             textAlign: 'center',
