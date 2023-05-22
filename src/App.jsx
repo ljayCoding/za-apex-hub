@@ -1,10 +1,17 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Tournaments from './Pages/Tournaments/Tournaments'
-import Home from './Pages/Home/Home'
-import { createTheme, ThemeProvider, CssBaseline, Box } from '@mui/material'
-import PageNotFound from './Pages/PageNotFound/PageNotFound'
-import ClipSubmission from './Pages/ClipSubmission/ClipSubmission'
-import SignIn from './Pages/SignIn/SignIn'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Tournaments from './Pages/Tournaments/Tournaments';
+import Home from './Pages/Home/Home';
+import {
+  createTheme,
+  ThemeProvider,
+  CssBaseline,
+  Box,
+} from '@mui/material';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
+import ClipSubmission from './Pages/ClipSubmission/ClipSubmission';
+import SignIn from './Pages/SignIn/SignIn';
+import News from './Pages/News/News';
+import Article from './components/Article/Article';
 
 const baseTheme = createTheme({
   palette: {
@@ -48,6 +55,8 @@ function App() {
             <Route path="/tournaments" element={<Tournaments />} />
             <Route path="/clip-submission" element={<ClipSubmission />} />
             <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/news/:id" element={<Article />} />
             <Route path="/*" element={<PageNotFound />} />
           </Routes>
         </ThemeProvider>

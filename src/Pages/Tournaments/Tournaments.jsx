@@ -1,7 +1,9 @@
-import { Box, Typography, Button } from '@mui/material'
-import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament'
-import NavBar from '../../components/NavBar/NavBar'
-import { useState } from 'react'
+
+import { Box, Typography, Button } from '@mui/material';
+import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament';
+import { useState } from 'react';
+import NavBar from '../../components/NavBar/NavBar';
+
 
 const Tournaments = () => {
   const [showModal, setShowModal] = useState(false)

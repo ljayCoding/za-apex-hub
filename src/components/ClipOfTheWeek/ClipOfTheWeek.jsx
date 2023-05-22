@@ -20,7 +20,7 @@ const ClipOfTheWeek = ({ tweetId, ownerName, ownerURL }) => {
           sx={{
             textAlign: 'center',
             marginBottom: '5px',
-            marginTop: '15px',
+            marginTop: '5px',
             fontFamily: 'Space Grotesk',
           }}
         >
