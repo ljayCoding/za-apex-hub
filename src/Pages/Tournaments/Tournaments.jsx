@@ -1,16 +1,30 @@
-
-import { Box, Typography, Button } from '@mui/material';
-import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament';
-import { useState } from 'react';
-import NavBar from '../../components/NavBar/NavBar';
-
+import {
+  Box,
+  Typography,
+  Button,
+  List,
+  ListItem,
+  CircularProgress,
+} from '@mui/material'
+import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament'
+import { useEffect, useState } from 'react'
+import NavBar from '../../components/NavBar/NavBar'
+import axios from 'axios'
 
 const Tournaments = () => {
   const [showModal, setShowModal] = useState(false)
 
+  const [tournaments, setTournaments] = useState()
+
   const handleModalClose = () => {
     setShowModal(false)
   }
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/tournament').then((tournaments) => {
+      setTournaments(tournaments.data)
+    })
+  }, [])
 
   return (
     <>
@@ -28,6 +42,17 @@ const Tournaments = () => {
         <Typography variant="h5" sx={{ marginTop: '5px' }}>
           Tournaments
         </Typography>
+        {!tournaments ? (
+          <CircularProgress />
+        ) : (
+          <List>
+            {tournaments?.map((tournament) => (
+              <ListItem key={tournament.id}>
+                {JSON.stringify(tournament)}
+              </ListItem>
+            ))}
+          </List>
+        )}
         <Button
           variant="contained"
           sx={{
