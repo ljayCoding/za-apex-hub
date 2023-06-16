@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import {
   Box,
   Typography,
@@ -7,10 +8,11 @@ import {
   CircularProgress,
   Input,
 } from '@mui/material'
-import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament'
-import { useEffect, useRef, useState } from 'react'
-import NavBar from '../../components/NavBar/NavBar'
 import axios from 'axios'
+
+import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament'
+import NavBar from '../../components/NavBar/NavBar'
+
 const Tournaments = () => {
   const [showModal, setShowModal] = useState(false)
   const [tournaments, setTournaments] = useState()
@@ -23,9 +25,16 @@ const Tournaments = () => {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:3000/tournament').then((tournaments) => {
-      setTournaments(tournaments.data)
-    })
+    setIsLoading(true)
+
+    axios
+      .get('http://localhost:3000/tournament')
+      .then((tournaments) => {
+        setTournaments(tournaments.data)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }, [update])
 
   const createHandler = () => {
@@ -89,7 +98,7 @@ const Tournaments = () => {
         >
           Create Custom
         </Button>
-        {!tournaments && <CircularProgress />}
+        {isLoading && <CircularProgress />}
         {tournaments && tournaments.length > 0 && (
           <List>
             {tournaments?.map((tournament) => (
