@@ -5,16 +5,18 @@ import {
   List,
   ListItem,
   CircularProgress,
+  Input,
 } from '@mui/material'
 import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import axios from 'axios'
-
 const Tournaments = () => {
   const [showModal, setShowModal] = useState(false)
-
   const [tournaments, setTournaments] = useState()
+  const [update, setUpdate] = useState()
+  const [isLoading, setIsLoading] = useState()
+  let nameRef = useRef()
 
   const handleModalClose = () => {
     setShowModal(false)
@@ -24,7 +26,26 @@ const Tournaments = () => {
     axios.get('http://localhost:3000/tournament').then((tournaments) => {
       setTournaments(tournaments.data)
     })
-  }, [])
+  }, [update])
+
+  const createHandler = () => {
+    if (nameRef.current.value !== '') {
+      setIsLoading(true)
+
+      axios
+        .post('http://localhost:3000/tournament', {
+          name: nameRef.current.value,
+        })
+        .then(() => {
+          setUpdate(new Date())
+
+          nameRef.current.value = ''
+        })
+        .finally(() => {
+          setIsLoading(false)
+        })
+    }
+  }
 
   return (
     <>
@@ -42,17 +63,10 @@ const Tournaments = () => {
         <Typography variant="h5" sx={{ marginTop: '5px' }}>
           Tournaments
         </Typography>
-        {!tournaments ? (
-          <CircularProgress />
-        ) : (
-          <List>
-            {tournaments?.map((tournament) => (
-              <ListItem key={tournament.id}>
-                {JSON.stringify(tournament)}
-              </ListItem>
-            ))}
-          </List>
-        )}
+        <Input
+          inputRef={nameRef}
+          sx={{ background: 'white', color: 'black' }}
+        />
         <Button
           variant="contained"
           sx={{
@@ -64,23 +78,30 @@ const Tournaments = () => {
             '&:hover': {
               fontWeight: 'bold',
             },
+            '&:disabled': {
+              background: 'grey',
+            },
           }}
+          disabled={isLoading}
           onClick={() => {
-            setShowModal(true)
+            createHandler()
           }}
         >
           Create Custom
         </Button>
-        <Box>
-          <Typography
-            variant="p1"
-            sx={{
-              fontWeight: 'bold',
-            }}
-          >
-            * COMING SOON! *
-          </Typography>
-        </Box>
+        {!tournaments && <CircularProgress />}
+        {tournaments && tournaments.length > 0 && (
+          <List>
+            {tournaments?.map((tournament) => (
+              <ListItem key={tournament.id}>
+                {JSON.stringify(tournament)}
+              </ListItem>
+            ))}
+          </List>
+        )}
+        {tournaments && tournaments.length == 0 && (
+          <Typography sx={{ color: 'red' }}>No tournaments found</Typography>
+        )}
       </Box>
     </>
   )
