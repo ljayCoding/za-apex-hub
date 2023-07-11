@@ -38,7 +38,7 @@ const NavBar = () => {
       {desktop ? (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <LinkButton to="/" name="home" />
-          <LinkButton to="/tournaments" name="tournaments" />
+          <LinkButton to="/tournaments" name="tournaments" disabled />
           <LinkButton to="/clip-submission" name="clip submission" />
           <LinkButton to="/news" name="news" />
           {!user ? (
@@ -96,7 +96,7 @@ const NavBar = () => {
                 }}
               >
                 <LinkButton to="/" name="home" />
-                <LinkButton to="/tournaments" name="tournaments" />
+                <LinkButton to="/tournaments" name="tournaments" disabled/>
                 <LinkButton to="/clip-submission" name="clip submission" />
                 <LinkButton to="/news" name="news" />
                 <LinkButton to="/sign-in" name="sign in" />

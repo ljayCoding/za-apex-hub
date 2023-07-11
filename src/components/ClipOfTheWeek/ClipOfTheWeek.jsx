@@ -1,17 +1,11 @@
-import { Tweet } from 'react-twitter-widgets';
-import {
-  Typography,
-  Box,
-  useTheme,
-  useMediaQuery,
-  Button,
-} from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Tweet } from 'react-twitter-widgets'
+import { Typography, Box, useTheme, useMediaQuery, Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 // eslint-disable-next-line react/prop-types
 const ClipOfTheWeek = ({ tweetId, ownerName, ownerURL }) => {
-  const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const theme = useTheme()
+  const desktop = useMediaQuery(theme.breakpoints.up('lg'))
   return (
     <Box>
       <>
@@ -51,14 +45,14 @@ const ClipOfTheWeek = ({ tweetId, ownerName, ownerURL }) => {
           </Typography>
         </Typography>
         {desktop ? (
-          <Box sx={{ height: '468px' }}>
+          <Box>
             <Tweet
               tweetId={tweetId}
               options={{ align: 'center', theme: 'dark', width: '400px' }}
             />
           </Box>
         ) : (
-          <Box sx={{ height: '363px' }}>
+          <Box>
             <Tweet
               tweetId={tweetId}
               options={{
@@ -74,7 +68,7 @@ const ClipOfTheWeek = ({ tweetId, ownerName, ownerURL }) => {
             margin: 'auto',
             position: 'relative',
             marginBottom: '20px',
-            marginTop: '85px',
+            marginTop: '15px',
             display: 'flex',
             textAlign: 'center',
             width: '130px',
@@ -91,6 +85,6 @@ const ClipOfTheWeek = ({ tweetId, ownerName, ownerURL }) => {
         </Button>
       </>
     </Box>
-  );
-};
-export default ClipOfTheWeek;
+  )
+}
+export default ClipOfTheWeek

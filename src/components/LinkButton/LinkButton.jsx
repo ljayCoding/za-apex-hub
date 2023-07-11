@@ -1,10 +1,11 @@
-import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 // eslint-disable-next-line react/prop-types
-const LinkButton = ({ to, name }) => {
+const LinkButton = ({ to, name, ...props }) => {
   return (
     <Button
+      {...props}
       component={Link}
       to={to}
       sx={{
@@ -15,6 +16,6 @@ const LinkButton = ({ to, name }) => {
     >
       {name}
     </Button>
-  );
-};
-export default LinkButton;
+  )
+}
+export default LinkButton

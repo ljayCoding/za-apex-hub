@@ -11,7 +11,7 @@ import {
   FormControl,
   FormControlLabel,
   Button,
-} from '@mui/material';
+} from '@mui/material'
 
 // eslint-disable-next-line react/prop-types
 const CreateNewTournament = ({ onClose, open }) => {
@@ -39,9 +39,7 @@ const CreateNewTournament = ({ onClose, open }) => {
           >
             Enter tournament details below
           </DialogContentText>
-          <Typography sx={{ color: 'white' }}>
-            Tournament Name *
-          </Typography>
+          <Typography sx={{ color: 'white' }}>Tournament Name *</Typography>
           <TextField sx={{ input: { color: '#EF476F' } }}></TextField>
           <Typography sx={{ color: 'white' }}>Prize *</Typography>
           <TextField sx={{ input: { color: '#EF476F' } }}></TextField>
@@ -150,21 +148,21 @@ const CreateNewTournament = ({ onClose, open }) => {
               />
             </RadioGroup>
           </FormControl>
-          <Box sx={{ marginTop: '20px', position: 'relative' }}>
+          <Box
+            sx={{ marginTop: '20px', display: 'flex', justifyContent: 'right' }}
+          >
+            <Button onClick={onClose}>Cancel</Button>
             <Button
               variant="contained"
-              sx={{ position: 'absolute', right: '0px', color: '#222222' }}
+              sx={{ color: '#222222', marginLeft: '5px' }}
               onClick={onClose}
             >
               Submit
-            </Button>
-            <Button onClick={onClose} sx={{}}>
-              Cancel
             </Button>
           </Box>
         </DialogContent>
       </Dialog>
     </Box>
-  );
-};
-export default CreateNewTournament;
+  )
+}
+export default CreateNewTournament

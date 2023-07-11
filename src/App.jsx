@@ -1,17 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Tournaments from './Pages/Tournaments/Tournaments';
-import Home from './Pages/Home/Home';
-import {
-  createTheme,
-  ThemeProvider,
-  CssBaseline,
-  Box,
-} from '@mui/material';
-import PageNotFound from './Pages/PageNotFound/PageNotFound';
-import ClipSubmission from './Pages/ClipSubmission/ClipSubmission';
-import SignIn from './Pages/SignIn/SignIn';
-import News from './Pages/News/News';
-import Article from './components/Article/Article';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Tournaments from './Pages/Tournaments/Tournaments'
+import Home from './Pages/Home/Home'
+import { createTheme, ThemeProvider, CssBaseline, Box } from '@mui/material'
+import PageNotFound from './Pages/PageNotFound/PageNotFound'
+import ClipSubmission from './Pages/ClipSubmission/ClipSubmission'
+import SignIn from './Pages/SignIn/SignIn'
+import News from './Pages/News/News'
+import Article from './components/Article/Article'
 
 const baseTheme = createTheme({
   palette: {
@@ -28,6 +23,7 @@ const baseTheme = createTheme({
   typography: {
     body1: {
       fontFamily: ['Kanit', 'sans-serif'].join(','),
+      fontSize: '14px',
     },
     h5: {
       fontFamily: ['Space Grotesk', 'sans-serif'].join(','),
