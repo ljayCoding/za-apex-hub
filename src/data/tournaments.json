@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+    "prize": "1500",
+    "type": "Team Deathmatch",
+    "games": "4",
+    "date": "06/21/2023",
+    "name": "t3nshy fun customs",
+    "description": "This is a fun custom that promotes placement games",
+    "host": {
+      "name": "t3nshy",
+      "id": "123456789"
+    }
+  },
+  {
+    "id": "2",
+    "prize": "4000",
+    "type": "Control",
+    "games": "13",
+    "date": "06/23/2023",
+    "name": "Redact's movement thingy",
+    "description": "This is a custom where everyone can show off their movement",
+    "host": {
+      "name": "redact",
+      "id": "135792468"
+    }
+  },
+  {
+    "id": "3",
+    "prize": "60000",
+    "type": "Battle Royale",
+    "games": "8",
+    "date": "06/29/2023",
+    "name": "Big finals",
+    "description": "Some big tournament finals where i have a lot of text to test out width and height, possibly a lot of money as well, who knows?, i also wonder if we hit a word cap?",
+    "host": {
+      "name": "Some tournament organiser",
+      "id": "135792468"
+    }
+  }
+]
