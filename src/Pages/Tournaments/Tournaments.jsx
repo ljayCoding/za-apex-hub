@@ -1,17 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
 import {
   Box,
-  Typography,
   Button,
-  List,
-  ListItem,
   CircularProgress,
   Input,
+  List,
+  ListItem,
+  Typography,
 } from '@mui/material'
-import axios from 'axios'
+import { useEffect, useRef, useState } from 'react'
 
 import CreateNewTournament from '../../components/CreateNewTournament/CreateNewTournament'
 import NavBar from '../../components/NavBar/NavBar'
+import axios from 'axios'
 
 const Tournaments = () => {
   const [showModal, setShowModal] = useState(false)
@@ -28,7 +28,7 @@ const Tournaments = () => {
     setIsLoading(true)
 
     axios
-      .get('http://localhost:3000/tournament')
+      .get('http://localhost:4000/tournament')
       .then((tournaments) => {
         setTournaments(tournaments.data)
       })
@@ -42,7 +42,7 @@ const Tournaments = () => {
       setIsLoading(true)
 
       axios
-        .post('http://localhost:3000/tournament', {
+        .post('http://localhost:4000/tournament', {
           name: nameRef.current.value,
         })
         .then(() => {
